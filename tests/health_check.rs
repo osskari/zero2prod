@@ -6,7 +6,7 @@ use zero2prod::startup;
 
 struct TestApp {
     address: String,
-    db_pool: PgPool
+    db_pool: PgPool,
 }
 
 async fn spawn_app() -> TestApp {
@@ -15,9 +15,7 @@ async fn spawn_app() -> TestApp {
     let address = format!("http://127.0.0.1:{}", port);
 
     let configuration = get_configuration().expect("Failed to read configuration");
-    let pool = PgPool::connect(
-        &configuration.database.connection_string()
-    )
+    let pool = PgPool::connect(&configuration.database.connection_string())
         .await
         .expect("Failed to connect to Postgres");
 
