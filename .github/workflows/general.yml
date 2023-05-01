@@ -43,7 +43,7 @@ jobs:
       - name: Install postgresql-client
         run: sudo apt-get update && sudo apt-get install postgresql-client -y
       - name: Give run access to db script
-        run: sudo chmod +x init_db.sh
+        run: sudo chmod +x ./scripts/init_db.sh
       - name: Migrate database
         run: SKIP_DOCKER=true ./scripts/init_db.sh
       - name: Run tests
@@ -88,7 +88,7 @@ jobs:
       - name: Install postgresql-client
         run: sudo apt-get update && sudo apt-get install postgresql-client -y
       - name: Give run access to db script
-        run: sudo chmod +x init_db.sh
+        run: sudo chmod +x ./scripts/init_db.sh
       - name: Migrate database
         run: SKIP_DOCKER=true ./scripts/init_db.sh
       - name: Linting
@@ -122,7 +122,7 @@ jobs:
           --no-default-features
           --locked
       - name: Give run access to db script
-        run: sudo chmod +x init_db.sh
+        run: sudo chmod +x ./scripts/init_db.sh
       - name: Migrate database
         run: SKIP_DOCKER=true ./scripts/init_db.sh
       - name: Generate code coverage
