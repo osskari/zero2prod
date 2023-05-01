@@ -1,9 +1,9 @@
-use actix_web::{HttpResponse, web};
+use actix_web::{web, HttpResponse};
 
 #[derive(serde::Deserialize)]
 pub struct FormData {
-    email: String,
-    name: String,
+    _email: String,
+    _name: String,
 }
 
 pub async fn subscribe(_body: web::Form<FormData>) -> HttpResponse {
