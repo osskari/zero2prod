@@ -46,6 +46,8 @@ jobs:
         run: sudo chmod +x ./scripts/init_db.sh
       - name: Migrate database
         run: SKIP_DOCKER=true ./scripts/init_db.sh
+      - name: Check if sqlx-data.json is up to date
+        run: cargo sqlx prepare --check -- --bin zero2prod
       - name: Run tests
         run: cargo test
   fmt:

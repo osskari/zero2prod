@@ -1,4 +1,4 @@
-# .cargo/config.toml
+# .cargo/Config.toml
 # On Windows
 # ```
 # cargo install -f cargo-binutils
