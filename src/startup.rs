@@ -34,7 +34,7 @@ impl Application {
             configuration.application.host, configuration.application.port
         );
 
-        let listener = TcpListener::bind(address).expect("Could not bind port");
+        let listener = TcpListener::bind(address)?;
         let port = listener.local_addr().unwrap().port();
         let server = run(listener, connection_pool, email_client)?;
 
@@ -62,6 +62,7 @@ fn run(
     email_client: EmailClient,
 ) -> Result<Server, std::io::Error> {
     let db_pool = web::Data::new(db_pool);
+    let email_client = web::Data::new(email_client);
     let server = HttpServer::new(move || {
         App::new()
             .wrap(TracingLogger::default())
