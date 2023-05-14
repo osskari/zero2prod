@@ -28,6 +28,7 @@ unicode-segmentation = "1.10.1"
 validator = "0.16"
 fake = "~2.3"
 rand = { version = "0.8", features = ["std_rng"] }
+thiserror = "1"
 
 [dependencies.reqwest]
 version = "0.11"
