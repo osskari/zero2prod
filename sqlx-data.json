@@ -13,6 +13,32 @@
     },
     "query": "\nINSERT INTO subscription_tokens (subscription_token, subscriber_id)\nVALUES ($1, $2)\n        "
   },
+  "2477f349c7861f99606c024dc4ea0c956d11d34ec27aa78532b58401b2a881ba": {
+    "describe": {
+      "columns": [
+        {
+          "name": "user_id",
+          "ordinal": 0,
+          "type_info": "Uuid"
+        },
+        {
+          "name": "password_hash",
+          "ordinal": 1,
+          "type_info": "Text"
+        }
+      ],
+      "nullable": [
+        false,
+        false
+      ],
+      "parameters": {
+        "Left": [
+          "Text"
+        ]
+      }
+    },
+    "query": "\nSELECT user_id, password_hash\nFROM users\nWHERE username = $1\n        "
+  },
   "4171875b3456cec50b8a986e7f892f24f1416d064404cdf4b7b4cb5de476ccdb": {
     "describe": {
       "columns": [
